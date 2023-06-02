@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Creates docker image 
+# -t => [tag image] (name:tag)
+# . => context of build (current directory dot) 
+docker build -t gocode:latest .
+
+# Executes docker container (The container is an instance of an image)
+# --rm => when stoped the container will be removed (but the container image remains)
+# -it => 'binds' iterative shell to container terminal
+docker run --rm -it -v .:/go/code gocode:latest sh
+
+
+
+# Go Build Plugin
+# -buildmode=plugin
+
